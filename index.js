@@ -8,7 +8,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const [currencyRates] = await Promise.all([getCurrencyRates(), getListCurrencyTypes()])
 
+    firstCurrency.value = 'EUR'
+    secondCurrency.value = 'USD'
     currentDate.innerHTML = currencyRates.date
+    onChange()
 
     firstCurrency.addEventListener('change', onChange)
     secondCurrency.addEventListener('change', onChange)
