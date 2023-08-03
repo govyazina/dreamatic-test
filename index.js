@@ -44,13 +44,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function onInput(i) {
-        const firstValue = firstAmount.value
-        const secondValue = secondAmount.value
-        if (i === 1) {
-            secondAmount.value = (firstValue * store.rate).toFixed(2)
-        } else {
-            firstAmount.value = (secondValue * store.rate).toFixed(2)
-        }
+        store.i = i
+        store.firstValue = firstAmount.value
+        store.secondValue = secondAmount.value
+        showRate()
     }
 
 
@@ -72,6 +69,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('.first_currency').innerHTML = store.firstCurrencyType
         document.querySelector('.second_currency').innerHTML = store.secondCurrencyType
         document.querySelector('.second_currency_rate').innerHTML = Number(store.rate).toFixed(2)
+        if (store.i === 1) {
+            secondAmount.value = (store.firstValue * store.rate).toFixed(2)
+        } else if (store.i === 2) {
+            firstAmount.value = (store.secondValue * store.rate).toFixed(2)
+        }
     }
 });
 
