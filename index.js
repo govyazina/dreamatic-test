@@ -39,8 +39,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (firstCurrencyType === 'EUR') {
             rate = currencyRates.rates[secondCurrencyType]
         }
-        if (secondCurrencyType === 'EUR') {
+        else if (secondCurrencyType === 'EUR') {
             rate = 1 / currencyRates.rates[firstCurrencyType]
+        }
+        else {
+            const rate1 = currencyRates.rates[firstCurrencyType]
+            const rate2 = currencyRates.rates[secondCurrencyType]
+            rate = (1 / rate1) * rate2
         }
         document.querySelector('.first_currency').innerHTML = firstCurrencyType
         document.querySelector('.second_currency').innerHTML = secondCurrencyType
