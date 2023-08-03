@@ -23,7 +23,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         url.searchParams.set("access_key", '74862ddc35eb9cd50dab455a68c6b8c3');
         let currencyList = await fetch(url)
             .then(response => response.json())
-            .then(result => result.symbols);
+            .then(result => result.symbols)
+            .catch(error => {
+                document.querySelector('.converter').innerHTML = 'sorry, service is not available'
+                throw error
+            });
         let stringOptions = '';
         for (const currency in currencyList) {
             stringOptions += `<option value="${currency}">${currencyList[currency]}</option>`
@@ -37,7 +41,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         url.searchParams.set("access_key", '74862ddc35eb9cd50dab455a68c6b8c3');
         return await fetch(url)
             .then(response => response.json())
-            .then(result => result);
+            .then(result => {
+                if (!result.success) {
+                    throw new Error(result.error.info)
+                }
+                console.log(result)
+                return result
+            })
+            .catch(error => {
+                document.querySelector('.converter').innerHTML = `<p>${error.message}</p><p>Sorry, service is not available</p>`
+                throw error
+            });
     }
 
     function onChange() {
