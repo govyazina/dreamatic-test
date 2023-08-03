@@ -3,13 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--    styles -->
+    <!-- styles -->
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/index.css">
 
     <title>Сurrency converter</title>
 </head>
 <body>
+<main>
+    <h1>Сurrency converter</h1>
+<div>
+    <div>1 Euro equals <span>11.74 Swedish Krona</span></div>
+    <div>3 Aug, 9:50 am UTC</div>
+    <div>
+        <input type="number" name="value first" id="value_first">
+        <label for="currency type first"></label>
+        <select id="currency type first">
+            <option value="1">Swedish Krona</option>
+            <option value="2">Euro</option>
+        </select>
+    </div>
+    <div>
+        <input type="number" name="value second" id="value_second">
+        <label for="currency type second"></label>
+        <select id="currency type second">
+            <option value="1">Swedish Krona</option>
+            <option value="2">Euro</option>
+        </select>
+    </div>
+</div>
+</main>
 
 <script src="index.js"></script>
 </body>
