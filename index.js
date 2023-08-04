@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function getListCurrencyTypes() {
         const url = new URL("http://data.fixer.io/api/symbols");
         url.searchParams.set("access_key", '74862ddc35eb9cd50dab455a68c6b8c3');
-        let currencyList = await fetch(url)
+        store.currencyList = await fetch(url)
             .then(response => response.json())
             .then(result => result.symbols)
             .catch(error => {
@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 throw error
             });
         let stringOptions = '';
-        for (const currency in currencyList) {
-            stringOptions += `<option value="${currency}">${currencyList[currency]}</option>`
+        for (const currency in store.currencyList) {
+            stringOptions += `<option value="${currency}">${store.currencyList[currency]}</option>`
         }
         firstCurrency.innerHTML = stringOptions;
         secondCurrency.innerHTML = stringOptions;
@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (!result.success) {
                     throw new Error(result.error.info)
                 }
-                console.log(result)
                 return result
             })
             .catch(error => {
@@ -87,8 +86,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function showRate() {
-        document.querySelector('.first_currency_type').innerHTML = store.firstCurrencyType
-        document.querySelector('.second_currency_type').innerHTML = store.secondCurrencyType
+        document.querySelector('.first_currency_type').innerHTML = store.currencyList[store.firstCurrencyType]
+        document.querySelector('.second_currency_type').innerHTML = store.currencyList[store.secondCurrencyType]
         document.querySelector('.second_currency_rate').innerHTML = Number(store.rate).toFixed(2)
         if (store.i === 1) {
             secondAmount.value = (store.firstValue * store.rate).toFixed(2)
