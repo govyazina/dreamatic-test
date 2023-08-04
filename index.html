@@ -11,25 +11,39 @@
 </head>
 <body>
 <main>
-    <h1>Сurrency converter</h1>
-<div class="converter">
-    <div>1 <span class="first_currency"></span> equals <span class="second_currency_rate"></span> <span class="second_currency"></span></div>
-    <div class="rate_date"></div>
-    <div>
-        <input type="number" name="value first" id="value_first">
-        <label for="currency_type_first"></label>
-        <select id="currency_type_first">
+    <div class="wrapper">
+        <h1 class="title">Сurrency converter</h1>
+        <section class="converter">
+            <h2 class="converter_title">
+                <div class="first_currency">
+                    1 <span class="first_currency_type"></span> equals
+                </div>
+                <div class="second_currency">
+                    <span class="second_currency_rate"></span> <span class="second_currency_type"></span>
+                </div>
+            </h2>
+            <p class="rate_date"></p>
+            <div class="converter_form">
+                <div>
+                    <label for="value_first">enter the amount</label>
+                    <input type="number" name="value first" id="value_first">
+                    <label for="currency_type_first">select currency</label>
+                    <select id="currency_type_first">
 
-        </select>
-    </div>
-    <div>
-        <input type="number" name="value second" id="value_second">
-        <label for="currency_type_second"></label>
-        <select id="currency_type_second">
+                    </select>
+                </div>
+                <div>
+                    <label for="value_first">enter the amount</label>
+                    <input type="number" name="value second" id="value_second">
+                    <label for="currency_type_second">select currency</label>
+                    <select id="currency_type_second">
 
-        </select>
+                    </select>
+                </div>
+            </div>
+
+        </section>
     </div>
-</div>
 </main>
 
 <script src="./index.js"></script>

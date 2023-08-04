@@ -3,3 +3,42 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+label {
+    display: none;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.title {
+    font-size: 1.5rem;
+}
+
+.converter div {
+    margin: 1rem auto;
+}
+
+.rate_date {
+    font-size: small;
+    color: #70757a;
+}
+
+.converter_title {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.first_currency {
+    color: #70757a;
+}
+
+.second_currency {
+    font-size: 2.5rem;
+    font-weight: bold;
+
+}

@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function showRate() {
-        document.querySelector('.first_currency').innerHTML = store.firstCurrencyType
-        document.querySelector('.second_currency').innerHTML = store.secondCurrencyType
+        document.querySelector('.first_currency_type').innerHTML = store.firstCurrencyType
+        document.querySelector('.second_currency_type').innerHTML = store.secondCurrencyType
         document.querySelector('.second_currency_rate').innerHTML = Number(store.rate).toFixed(2)
         if (store.i === 1) {
             secondAmount.value = (store.firstValue * store.rate).toFixed(2)
