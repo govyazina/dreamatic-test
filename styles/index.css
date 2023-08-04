@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
-body {
-    font-family: 'Roboto', sans-serif;
-}
-
-label {
-    display: none;
-}
-
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -15,12 +7,18 @@ label {
     margin-top: 3rem;
 }
 
-.title {
-    font-size: 1.5rem;
-}
-
 .converter div {
     margin: 1rem auto;
+}
+
+/* typography */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.title {
+    font-size: 1.5rem;
 }
 
 .rate_date {
@@ -41,4 +39,25 @@ label {
     font-size: 2.5rem;
     font-weight: bold;
 
+}
+
+/* converter form */
+
+label {
+    display: none;
+}
+
+.converter_form input::-webkit-outer-spin-button,
+.converter_form input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.converter_form input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.converter_form input,
+.converter_form select {
+    padding: 0.5rem;
 }
