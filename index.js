@@ -10,7 +10,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     firstCurrency.value = 'EUR'
     secondCurrency.value = 'USD'
-    currentDate.innerHTML = currencyRates.date
+    currentDate.innerHTML = (new Date(currencyRates.timestamp * 1000)).toLocaleString('en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+        timeZone: 'UTC',
+    })
     onChange()
 
     firstCurrency.addEventListener('change', onChange)
